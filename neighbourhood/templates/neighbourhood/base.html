@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>Mtaani - {{title}}</title>
+  {% else %}
+    <title> Mtaani </title>
+  {% endif %}
+
+</head>
+<body>
+    {% block content %} <h1>Mtaani</h1> {%endblock%}
+</body>
+</html>
