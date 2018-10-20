@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    'bootstrap4',
     'neighbourhood.apps.NeighbourhoodConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
