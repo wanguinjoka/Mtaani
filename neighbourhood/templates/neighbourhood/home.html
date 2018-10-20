@@ -5,7 +5,7 @@
           {{block.super}}
 
 
-          {% for kijiji in kijijis%}
+          {% for kijiji in kijijis %}
 
 
           <div class="card" style="width: 18rem;">
@@ -13,7 +13,7 @@
 
                   <div class="card-body">
                     <h1 class="card-text">{{ kijiji.location }}</h1>
-                    <button type="button" class="btn btn-outline-primary"><a href="#">Join</a></button>
+                    <button type="button" class="btn btn-outline-primary"><a href="{% url 'kijiji-detail' kijiji.id %}">Join</a></button>
 
                 </div>
             </div>

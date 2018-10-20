@@ -1,0 +1,10 @@
+{%extends 'neighbourhood/base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+<div class="jumbtron">
+	<h2 class="title">{{ object.location }}</h2>
+	 <p class="article-content">{{ object.description }}</p>
+	 <p>Resident Count {{ object.count }}</p>
+   </div>
+</div>
+{% endblock %}
