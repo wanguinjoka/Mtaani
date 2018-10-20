@@ -31,4 +31,14 @@
 	{% endfor %}
 </article>
 </div>
+<div class="container">
+<article class="business">
+	<legend>Business</legend>
+	{% for b in object.business.all %}
+        <p>{{ b.name }}</p>
+		<p>{{ b.details }}</p>
+		<p>{{ b.contacts }}</p>
+	{% endfor %}
+</article>
+</div>
 {% endblock %}
