@@ -17,7 +17,7 @@ class News(models.Model):
     cation = models.CharField(max_length = 100)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    kijiji = models.ForeignKey(Kijiji, on_delete=models.CASCADE)
+    kijiji = models.ForeignKey(Kijiji, related_name='news', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.tag
@@ -27,7 +27,7 @@ class Business(models.Model):
     details = models.CharField(max_length=100)
     contacts = models.CharField(max_length=11)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    kijiji = models.ForeignKey(Kijiji, on_delete=models.CASCADE)
+    kijiji = models.ForeignKey(Kijiji, related_name='business', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -35,7 +35,7 @@ class Business(models.Model):
 class Police(models.Model):
     station = models.CharField(max_length=100)
     contacts = models.CharField(max_length=11)
-    kijiji = models.ForeignKey(Kijiji, on_delete=models.CASCADE)
+    kijiji = models.ForeignKey(Kijiji, related_name='police', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.station
@@ -43,7 +43,7 @@ class Police(models.Model):
 class Hospital(models.Model):
     name = models.CharField(max_length=100)
     contacts = models.CharField(max_length=11)
-    kijiji = models.ForeignKey(Kijiji, on_delete=models.CASCADE)
+    kijiji = models.ForeignKey(Kijiji, related_name='hospital', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name

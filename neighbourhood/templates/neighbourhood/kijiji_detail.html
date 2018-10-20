@@ -7,10 +7,28 @@
 	 <p>Resident Count {{ object.count }}</p>
    </div>
 </div>
+<div class="container">
 <article class="news">
-	{% for news in kijiji.news.all %}
-
+	<legend>Notice Board</legend>
+	{% for new in object.news.all %}
+        <span>{{ new.author}}
+			<small class="text-muted">{{new.date_posted | date:"F d, Y" }}</small>
+			</span>
+		<p>{{ new.cation }}</p>
 	{% endfor %}
-
 </article>
+</div>
+<div class="container">
+<article class="police">
+	<legend>Ammenities</legend>
+	{% for p in object.police.all %}
+        <p>{{ p.station }}</p>
+		<p>{{ p.contacts }}</p>
+	{% endfor %}
+	{% for h in object.hospital.all %}
+        <p>{{ h.name }}</p>
+		<p>{{ h.contacts }}</p>
+	{% endfor %}
+</article>
+</div>
 {% endblock %}
