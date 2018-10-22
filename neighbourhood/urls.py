@@ -1,5 +1,6 @@
 from django.conf.urls import url
-from .views import KijijiDetailView,NewsCreateView,BusinessCreateView
+from .views import KijijiDetailView,NewsCreateView,BusinessCreateView, ProfileCreateView
+from django.conf import settings
 from . import views
 
 urlpatterns=[
@@ -7,4 +8,7 @@ urlpatterns=[
     url(r'^kijiji/(?P<pk>[0-9]+)/$', KijijiDetailView.as_view(), name='kijiji-detail'),
     url(r'^news/new/', NewsCreateView.as_view(), name='news-create'),
     url(r'^business/new/', BusinessCreateView.as_view(), name='business-create'),
+    url(r'^profile/new/', ProfileCreateView.as_view(), name='profile-create'),
 ]
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)

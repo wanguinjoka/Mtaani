@@ -4,7 +4,7 @@
 <div class="jumbtron">
 	<h2 class="title">{{ object.location }}</h2>
 	 <p class="article-content">{{ object.description }}</p>
-	 <p>Resident Count {{ object.count }}</p>
+	 <p>Resident Count {{ object.profile | length }}</p>
    </div>
 </div>
 <div class="container">
@@ -40,5 +40,16 @@
 		<p>{{ b.contacts }}</p>
 	{% endfor %}
 </article>
+</div>
+<div class="container">
+	<div class="container">
+	<article class="business">
+		<legend>Residents</legend>
+		{% for p in object.profile.all %}
+	        <p>{{ p.user}}</p>
+			<p>{{ p.image }}</p>
+		{% endfor %}
+	</article>
+
 </div>
 {% endblock %}
