@@ -63,7 +63,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField( upload_to='profile_pics', default='default.jpg')
     bio = models.TextField()
-    kijiji = models.ForeignKey(Kijiji, related_name='residents')
+    kijiji = models.ForeignKey(Kijiji, related_name='profile')
 
 
     def __str__(self):
