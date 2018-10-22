@@ -3,8 +3,8 @@ from django.http import HttpResponse
 
 from django.views.generic import DetailView, CreateView,UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import CreateNewsForm
-from .models import Kijiji, News
+
+from .models import Kijiji, News ,Business
 # Create your views here.
 def home(request):
     context={
@@ -33,6 +33,14 @@ class KijijiDetailView(LoginRequiredMixin, DetailView):
 class NewsCreateView(LoginRequiredMixin, CreateView):
     model = News
     fields = ['tag','cation','kijiji']
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class BusinessCreateView(LoginRequiredMixin, CreateView):
+    model = Business
+    fields = ['name','details','kijiji','contacts']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
