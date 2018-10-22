@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from .views import KijijiDetailView,NewsCreateView,BusinessCreateView, ProfileCreateView
 from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns=[

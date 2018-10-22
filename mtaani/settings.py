@@ -32,10 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'bootstrap4',
-    'crispy_forms',
     'users.apps.UsersConfig',
     'neighbourhood.apps.NeighbourhoodConfig',
+    'bootstrap4',
+    'crispy_forms',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -125,10 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL  = 'profile-create'
+LOGIN_REDIRECT_URL  = 'home'
 LOGIN_URL = 'login'
 
 MEDIA_URL = '/media/'
