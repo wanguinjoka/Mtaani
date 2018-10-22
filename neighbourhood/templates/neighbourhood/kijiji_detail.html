@@ -12,7 +12,7 @@
 			<div class="jumbtron">
 				<h2 class="title">{{ object.location }}</h2>
 				 <p class="article-content">{{ object.description }}</p>
-				 <p>Resident Count {{ object.profile | length }}</p>
+				 <p>Resident Count {{ object.profile.all | length }}</p>
 			 </div>
 	     </div>
 <!---News-->
@@ -68,7 +68,7 @@
 <div class="container">
 	<div class="row">
 	<article class="Profile">
-		<legend>Neighbours</legend>
+		<legend>List of Neighbours</legend>
 		{% for m in object.profile.all %}
 		<img class="pic"  src="{{ m.image.url}}" style="border-radius:50%; height: 50px; width:50px;" alt="Big Sur">
 	        <span>{{ m.user.username }}</span>
