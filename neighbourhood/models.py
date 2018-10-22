@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 # Create your models here.
 class Kijiji(models.Model):
@@ -12,6 +13,9 @@ class Kijiji(models.Model):
     def __str__(self):
         return self.location
 
+    def get_absolute_url(self):
+        return reverse('kijiji-detail', kwargs={'pk': self.pk})
+
 class News(models.Model):
     tag = models.CharField(max_length=100)
     cation = models.CharField(max_length = 100)
@@ -22,6 +26,9 @@ class News(models.Model):
     def __str__(self):
         return self.tag
 
+    def get_absolute_url(self):
+        return reverse('kijiji-detail', args={self.kijiji.id})
+
 class Business(models.Model):
     name = models.CharField(max_length=100)
     details = models.CharField(max_length=100)
@@ -31,6 +38,9 @@ class Business(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('kijiji-detail', args={self.kijiji.id})
 
 class Police(models.Model):
     station = models.CharField(max_length=100)
