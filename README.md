@@ -19,7 +19,7 @@ This is a review webapp that users can view there location Join the Mtaa, Post n
 * Heruko
  ### To get the app
 * In your terminal:
-         $ git clone https://github.com/wanguinjoka/Mtaani
+        $ git clone https://github.com/wanguinjoka/Mtaani
         $ cd Awwards
         $ python3.6 -m venv --without-pip virtual
         $ source virtual/bin/activate

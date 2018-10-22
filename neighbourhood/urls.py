@@ -10,6 +10,7 @@ urlpatterns=[
     url(r'^news/new/', NewsCreateView.as_view(), name='news-create'),
     url(r'^business/new/', BusinessCreateView.as_view(), name='business-create'),
     url(r'^profile/new/', ProfileCreateView.as_view(), name='profile-create'),
+    url(r'^profile/', views.profile, name = 'profile'),
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root =settings.MEDIA_ROOT)

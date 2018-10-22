@@ -1,9 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 from django.views.generic import DetailView, CreateView,UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import ProfileUpdateForm
+from django.contrib import messages
 from .models import Kijiji, News ,Business, Profile
 # Create your views here.
 def home(request):
@@ -41,3 +42,22 @@ class BusinessCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+                                   #request.FILES, instance=request.user.profile)
+
+        if  p_form.is_valid():
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('profile')
+    else:
+
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+
+        context = { 'p_form':p_form}
+        return render(request,'neighbourhood/profile.html', context)

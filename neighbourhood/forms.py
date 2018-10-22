@@ -1,9 +1,8 @@
-# from .models import News
-#
-# class CreateNewsForm(forms.ModelForm):
-#     class Meta:
-#         model = News
-#         exclude = ['author','date_posted']
-#         widgets = {
-#             'kijiji': forms.CheckboxSelectMultiple(),
-#         }
+from django import forms
+from django.contrib.auth.models import User
+from .models import Profile
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ['image','bio','kijiji']
