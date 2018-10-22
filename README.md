@@ -1,14 +1,15 @@
-# AWWARDS
+# MTAANI
  ## Built By [Wangui Njoka](https://github.com/wanguinjoka/)
  ## Description
-This is a review webapp that users can post there webapps and others can rate the apps and view the profile of the users and the actual site
+This is a review webapp that users can view there location Join the Mtaa, Post news and Advertise there businesses and view who there neighbours are
 ## User Stories
-* View posted projects and their details.
-* Post a project to be rated/reviewed
-* Rate/ review other users' projects
-* Search for projects
-* View projects overall score
-* View my profile page.
+* View Neighbourhood.
+* Join Neighbourhood
+* View latest happennings in the hood
+* Post latest happennings
+* Advertise there business
+* View various Businesss in the hood
+* Search for Businesses
  ## SetUp / Installation Requirements
 ### Prerequisites
 * python3
@@ -18,7 +19,7 @@ This is a review webapp that users can post there webapps and others can rate th
 * Heruko
  ### To get the app
 * In your terminal:
-         $ git clone https://github.com/wanguinjoka/Awwards
+         $ git clone https://github.com/wanguinjoka/Mtaani
         $ cd Awwards
         $ python3.6 -m venv --without-pip virtual
         $ source virtual/bin/activate
